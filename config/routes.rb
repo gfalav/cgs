@@ -1,4 +1,12 @@
 Cgs::Application.routes.draw do
+  resources :zonas
+
+  resources :conductors
+
+  resources :puntos
+
+  resources :proyectos
+
   get "home/index"
 
   # The priority is based upon order of creation:

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  punto: MyString
+  proyecto_id: 1
+  secuencia: 1
+  latitud: 9.99
+  longitud: 9.99
+  distancia: 9.99
+  angulo: 9.99
+
+two:
+  punto: MyString
+  proyecto_id: 1
+  secuencia: 1
+  latitud: 9.99
+  longitud: 9.99
+  distancia: 9.99
+  angulo: 9.99

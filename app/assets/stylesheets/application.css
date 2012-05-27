@@ -16,6 +16,7 @@ html, body {
         width: 760px;
         margin: auto;
         padding: 0px;
+        background-color: black;
 }
 
 #logobar {
@@ -56,4 +57,20 @@ html, body {
 
 #piebar {
         padding: 10px 0 0 10px;
+}
+
+
+
+
+
+.field, .field input {
+  padding-left: 20px;
+  font-family: verdana;
+  font-size: 11px;
+  width: 400px;  
+}
+
+.field select {
+  font-family: verdana;
+  font-size: 11px;
 }

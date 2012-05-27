@@ -1,0 +1,35 @@
+<h1>Listing puntos</h1>
+
+<table>
+  <tr>
+    <th>Punto</th>
+    <th>Proyecto</th>
+    <th>Secuencia</th>
+    <th>Latitud</th>
+    <th>Longitud</th>
+    <th>Distancia</th>
+    <th>Angulo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @puntos.each do |punto| %>
+  <tr>
+    <td><%= punto.punto %></td>
+    <td><%= punto.proyecto_id %></td>
+    <td><%= punto.secuencia %></td>
+    <td><%= punto.latitud %></td>
+    <td><%= punto.longitud %></td>
+    <td><%= punto.distancia %></td>
+    <td><%= punto.angulo %></td>
+    <td><%= link_to 'Show', punto %></td>
+    <td><%= link_to 'Edit', edit_punto_path(punto) %></td>
+    <td><%= link_to 'Destroy', punto, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Punto', new_punto_path %>

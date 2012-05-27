@@ -1,0 +1,73 @@
+﻿<%= form_for(@proyecto) do |f| %>
+  <% if @proyecto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@proyecto.errors.count, "error") %> prohibited this proyecto from being saved:</h2>
+
+      <ul>
+      <% @proyecto.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :proyecto %><br />
+    <%= f.text_field :proyecto %>
+  </div>
+  <div class="field">
+    <%= f.label 'Descripción' %><br />
+    <%= f.text_field :desc %>
+  </div>
+  <div class="field">
+    <%= f.label :comitente %><br />
+    <%= f.text_field :comitente %>
+  </div>
+  <div class="field">
+    <%= f.label :constructor %><br />
+    <%= f.text_field :constructor %>
+  </div>
+  <div class="field">
+    <%= f.label :proyectista %><br />
+    <%= f.text_field :proyectista %>
+  </div>
+  <div class="field">
+    <%= f.label 'Fecha Proyecto' %><br />
+    <%= f.date_select :fproyecto %>
+  </div>
+  <div class="field">
+    <%= f.label 'Ubicación' %><br />
+    <%= f.text_field :ubicacion %>
+  </div>
+  <div class="field">
+    <%= f.label :expediente %><br />
+    <%= f.text_field :expediente %>
+  </div>
+  <div class="field">
+    <%= f.label 'Conductor de Energía' %><br />
+    <%= collection_select(:proyecto,:cond_e_id, @conductor, :id, :nombre) %>
+  </div>
+  <div class="field">
+    <%= f.label 'Conductor de Guardia' %><br />
+    <%= collection_select(:proyecto,:cond_g_id, @conductor, :id, :nombre) %>
+  </div>
+  <div class="field">
+    <%= f.label 'Zona Climática' %><br />
+    <%= collection_select(:proyecto,:zona_id, @zona, :id, :nombre) %>
+  </div>
+  <div class="field">
+    <%= f.label 'Tipo Constructivo' %><br />
+    <%= f.number_field :tconstr_id %>
+  </div>
+  <div class="field">
+    <%= f.label 'Vano Máximo (m)' %><br />
+    <%= f.text_field :vanomax %>
+  </div>
+  <div class="field">
+    <%= f.label 'Distancia máx e/Retensiones (m)' %><br />
+    <%= f.text_field :dretmax %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

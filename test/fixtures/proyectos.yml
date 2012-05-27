@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  proyecto: MyString
+  desc: MyString
+  comitente: MyString
+  constructor: MyString
+  proyectista: MyString
+  fproyecto: 2012-05-27
+  ubicacion: MyString
+  expediente: MyString
+  cond_e_id: 1
+  cond_g_id: 1
+  zona_id: 1
+  tconstr_id: 1
+  vanomax: 9.99
+  dretmax: 9.99
+
+two:
+  proyecto: MyString
+  desc: MyString
+  comitente: MyString
+  constructor: MyString
+  proyectista: MyString
+  fproyecto: 2012-05-27
+  ubicacion: MyString
+  expediente: MyString
+  cond_e_id: 1
+  cond_g_id: 1
+  zona_id: 1
+  tconstr_id: 1
+  vanomax: 9.99
+  dretmax: 9.99
