@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cgs</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <div id="logobar">
+      <%= image_tag('CGSbiglogo.png') %>
+  </div>
+  
+  <div id="menubar">
+    <ul>
+      <li><%= link_to('PROYECTOS','#') %></li>
+      <li><%= link_to('MONTAJES','#') %></li>
+      <li><%= link_to('MANTENIMIENTO','#') %></li>
+      <li><%= link_to('CONSULTORIA','#') %></li>
+      <li><%= link_to('CONTACTO','#') %></li>
+    </ul>
+  </div>
+  
+  <div id="principal" >
+    <%= yield %>
+  </div>
+  
+  <div id="piebar">
+    <%= image_tag('CGSpie.png') %>
+  </div>
+
+
+</body>
+</html>
