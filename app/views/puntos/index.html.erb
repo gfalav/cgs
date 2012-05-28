@@ -20,13 +20,13 @@
       <tr>
         <td class="puntotdclass"><%= punto.secuencia %></td>
         <td class="puntotdclass"><%= punto.punto %></td>
-        <td class="puntotdclass"><%= punto.latitud %></td>
-        <td class="puntotdclass"><%= punto.longitud %></td>
-        <td class="puntotdclass"><%= punto.distancia %></td>
-        <td class="puntotdclass"><%= punto.angulo %></td>
-        <td class="puntotbclass"><%= link_to 'Show', punto %></td>
-        <td class="puntotbclass"><%= link_to 'Edit', edit_punto_path(punto) %></td>
-        <td class="puntotbclass"><%= link_to 'Destroy', punto, confirm: 'Are you sure?', method: :delete %></td>
+        <td class="puntotdclass"><%= number_with_precision(punto.latitud, :precision=>3)   %></td>
+        <td class="puntotdclass"><%= number_with_precision(punto.longitud, :precision=>3)  %></td>
+        <td class="puntotdclass"><%= number_with_precision(punto.distancia, :precision=>0) %></td>
+        <td class="puntotdclass"><%= number_with_precision(punto.angulo, :precision=>1)    %></td>
+        <td class="puntotbclass"><%= link_to 'S', punto %></td>
+        <td class="puntotbclass"><%= link_to 'E', edit_punto_path(punto) %></td>
+        <td class="puntotbclass"><%= link_to 'D', punto, confirm: 'Are you sure?', method: :delete %></td>
       </tr>
     <% end %>
     </table>
@@ -45,13 +45,53 @@
 </script>
 
 <script type="text/javascript">
-    jQuery(document).ready(function(){
-        var latlng = new google.maps.LatLng(-33.30, -66.33);
-        var myOptions = {
-            zoom: 12,
-            center: latlng,
-            mapTypeId: google.maps.MapTypeId.HYBRID
-        };
-        var map = new google.maps.Map(document.getElementById("puntosmapa"), myOptions);
-    });
+        var proyecto_id = <%= @proyecto_id %>;
+        jQuery(document).ready(function(){
+                var latlng = new google.maps.LatLng(-33.30, -66.33);
+                var myOptions = {
+                        zoom: 12,
+                        center: latlng,
+                        mapTypeId: google.maps.MapTypeId.HYBRID
+                };
+                var map = new google.maps.Map(document.getElementById("puntosmapa"), myOptions);
+
+                google.maps.event.addListener(map, 'click', function(event) {
+                        jQuery.ajax({
+                           type: "POST",
+                           url: "../puntos/indajax",
+                           dataType: 'json',
+                           data: "lat="+event.latLng.lat()+"&long="+event.latLng.lng()+"&proyecto_id="+proyecto_id,
+                           success: function(puntos){ 
+                             jQuery(location).attr('href','../puntos?proyecto_id='+proyecto_id);
+                           }
+                        });
+                });
+
+
+                dibujatraza(<%=raw(@puntosarr) %>);
+
+                function dibujatraza(puntos){
+                        var puntosarr = [];
+                        var mylatlng = new google.maps.LatLng(-33.30,-66.33);
+                        jQuery.each(puntos,function(index,value){
+                                mylatlng = new google.maps.LatLng(value.latitud, value.longitud);
+                                var marker = new google.maps.Marker({
+                                      position: mylatlng, 
+                                      map: map, 
+                                      title: value.nombre
+                                });  	
+                                puntosarr.push(mylatlng);
+                        });
+                        map.setCenter(mylatlng);
+                        var traza = new google.maps.Polyline({
+                            path: puntosarr,
+                            strokeColor: "#0000FF",
+                            strokeOpacity: 1.0,
+                            strokeWeight: 2
+                        });
+                        traza.setMap(map);
+                };
+
+     });
+     
 </script>

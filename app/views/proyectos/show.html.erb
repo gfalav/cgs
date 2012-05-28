@@ -70,4 +70,4 @@
 
 <%= link_to 'Edit', edit_proyecto_path(@proyecto) %> |
 <%= link_to 'Back', proyectos_path %> |
-<%= link_to 'Traza del Proyecto', puntos_path %>
+<%= link_to 'Traza del Proyecto', puntos_path(:proyecto_id=>@proyecto.id) %>

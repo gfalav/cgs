@@ -3,8 +3,12 @@ Cgs::Application.routes.draw do
 
   resources :conductors
 
-  resources :puntos
-
+  resources :puntos do
+    collection do
+      post 'indajax'
+    end
+  end
+  
   resources :proyectos
 
   get "home/index"
