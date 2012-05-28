@@ -37,4 +37,4 @@
 
 
 <%= link_to 'Edit', edit_punto_path(@punto) %> |
-<%= link_to 'Back', puntos_path %>
+<%= link_to 'Back', puntos_path(:proyecto_id=>@punto.proyecto_id) %>

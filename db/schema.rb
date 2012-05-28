@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120527224105) do
+ActiveRecord::Schema.define(:version => 20120528230131) do
+
+  create_table "condclimas", :force => true do |t|
+    t.integer  "zona_id"
+    t.string   "nombre"
+    t.decimal  "temp"
+    t.decimal  "viento"
+    t.decimal  "hielo"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "conductors", :force => true do |t|
     t.string   "nombre"

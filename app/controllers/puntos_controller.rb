@@ -148,7 +148,7 @@ class PuntosController < ApplicationController
     @punto.destroy
 
     respond_to do |format|
-      format.html { redirect_to puntos_url }
+      format.html { redirect_to puntos_url(:proyecto_id=>@punto.proyecto_id) }
       format.json { head :no_content }
     end
   end

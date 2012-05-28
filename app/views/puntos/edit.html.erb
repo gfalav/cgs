@@ -3,4 +3,4 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @punto %> |
-<%= link_to 'Back', puntos_path %>
+<%= link_to 'Back', puntos_path(:proyecto_id=>@punto.proyecto_id) %>
