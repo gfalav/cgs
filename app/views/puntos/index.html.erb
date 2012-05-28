@@ -1,35 +1,57 @@
-<h1>Listing puntos</h1>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 
-<table>
-  <tr>
-    <th>Punto</th>
-    <th>Proyecto</th>
-    <th>Secuencia</th>
-    <th>Latitud</th>
-    <th>Longitud</th>
-    <th>Distancia</th>
-    <th>Angulo</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h1>Traza del Proyecto</h1>
 
-<% @puntos.each do |punto| %>
-  <tr>
-    <td><%= punto.punto %></td>
-    <td><%= punto.proyecto_id %></td>
-    <td><%= punto.secuencia %></td>
-    <td><%= punto.latitud %></td>
-    <td><%= punto.longitud %></td>
-    <td><%= punto.distancia %></td>
-    <td><%= punto.angulo %></td>
-    <td><%= link_to 'Show', punto %></td>
-    <td><%= link_to 'Edit', edit_punto_path(punto) %></td>
-    <td><%= link_to 'Destroy', punto, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+<div id="puntoslista">
+    <table>
+      <tr>
+        <th class="puntothclass">Sec</th>
+        <th class="puntothclass">Punto</th>
+        <th class="puntothclass">Lat</th>
+        <th class="puntothclass">Long</th>
+        <th class="puntothclass">Dist</th>
+        <th class="puntothclass">Ang</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
 
-<br />
+    <% @puntos.each do |punto| %>
+      <tr>
+        <td class="puntotdclass"><%= punto.secuencia %></td>
+        <td class="puntotdclass"><%= punto.punto %></td>
+        <td class="puntotdclass"><%= punto.latitud %></td>
+        <td class="puntotdclass"><%= punto.longitud %></td>
+        <td class="puntotdclass"><%= punto.distancia %></td>
+        <td class="puntotdclass"><%= punto.angulo %></td>
+        <td class="puntotbclass"><%= link_to 'Show', punto %></td>
+        <td class="puntotbclass"><%= link_to 'Edit', edit_punto_path(punto) %></td>
+        <td class="puntotbclass"><%= link_to 'Destroy', punto, confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+    </table>
 
-<%= link_to 'New Punto', new_punto_path %>
+    <br />
+
+    <%= link_to 'New Punto', new_punto_path %>
+</div>
+
+<div id="puntosmapa">
+    mapa
+</div>
+
+<script type="text/javascript"
+    src="https://maps.google.com/maps/api/js?sensor=false">
+</script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        var latlng = new google.maps.LatLng(-33.30, -66.33);
+        var myOptions = {
+            zoom: 12,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.HYBRID
+        };
+        var map = new google.maps.Map(document.getElementById("puntosmapa"), myOptions);
+    });
+</script>

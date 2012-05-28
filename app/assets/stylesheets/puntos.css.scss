@@ -1,3 +1,44 @@
 // Place all the styles related to the puntos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+h1 {
+	text-align: center;
+	font-size: 14px;
+}
+
+#puntoslista {
+	width: 370px;
+	padding-left: 2px;
+	float: left;
+}
+
+.puntothclass {
+	font-size: 10px;
+	border: 1px solid black;
+	width: 55px;
+}
+
+.puntotdclass {
+	font-size: 10px;
+	border: 1px solid blue;
+}
+
+.puntotbclass {
+	font-size: 10px;
+}
+
+.puntotbclass a {
+	font-size: 9px;
+	text-decoration: none;
+}
+
+.puntolinea {
+	display: inline;
+}
+
+#puntosmapa {
+	width: 370px;
+	height: 400px;
+	background: black;
+	float: left;
+}

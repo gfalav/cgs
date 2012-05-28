@@ -1,24 +1,24 @@
 <h1>Lista de Proyectos</h1>
 
-<table>
+<table class="proytable">
   <tr>
-    <th class="thclass">Proyecto</th>
-    <th class="thclass">Comitente</th>
-    <th class="thclass">Fproyecto</th>
-    <th class="thclass">Ubicacion</th>
-    <th class="thclass">Expediente</th>
+    <th class="proythclass">Proyecto</th>
+    <th class="proythclass">Comitente</th>
+    <th class="proythclass">Fproyecto</th>
+    <th class="proythclass">Ubicacion</th>
+    <th class="proythclass">Expediente</th>
   </tr>
 
 <% @proyectos.each do |proyecto| %>
   <tr>
-    <td class="tdclass"><%= proyecto.proyecto %></td>
-    <td class="tdclass"><%= proyecto.comitente %></td>
-    <td class="tdclass"><%= proyecto.fproyecto %></td>
-    <td class="tdclass"><%= proyecto.ubicacion %></td>
-    <td class="tdclass"><%= proyecto.expediente %></td>
-    <td class="tbclass"><%= link_to 'Show', proyecto %></td>
-    <td class="tbclass"><%= link_to 'Edit', edit_proyecto_path(proyecto) %></td>
-    <td class="tbclass"><%= link_to 'Destroy', proyecto, confirm: 'Are you sure?', method: :delete %></td>
+    <td class="proytdclass"><%= proyecto.proyecto %></td>
+    <td class="proytdclass"><%= proyecto.comitente %></td>
+    <td class="proytdclass"><%= proyecto.fproyecto %></td>
+    <td class="proytdclass"><%= proyecto.ubicacion %></td>
+    <td class="proytdclass"><%= proyecto.expediente %></td>
+    <td class="proytbclass"><%= link_to 'Show', proyecto %></td>
+    <td class="proytbclass"><%= link_to 'Edit', edit_proyecto_path(proyecto) %></td>
+    <td class="proytbclass"><%= link_to 'Destroy', proyecto, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
