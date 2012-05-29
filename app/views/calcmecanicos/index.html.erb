@@ -1,18 +1,18 @@
-<h1>Listing calcmecanicos</h1>
+﻿<h1>Cálculo mecánico de los conductores</h1>
 
 <table>
   <tr>
-    <th>Vano</th>
-    <th>Condclima</th>
-    <th>Tension</th>
-    <th>Tiro</th>
-    <th>Flecha t</th>
-    <th>Flecha v</th>
-    <th>Flecha h</th>
-    <th>Conductor</th>
-    <th>Temp</th>
-    <th>Viento</th>
-    <th>Hielo</th>
+    <th class="calcthclass">Vano<br/>ID</th>
+    <th class="calcthclass">Conductor</th>
+    <th class="calcthclass">Condición</th>
+    <th class="calcthclass">Temp<br/>C°</th>
+    <th class="calcthclass">Viento<br/>km/h</th>
+    <th class="calcthclass">Hielo<br/>mm</th>
+    <th class="calcthclass">Tensión<br/>kg/mm2</th>
+    <th class="calcthclass">Tiro<br/>kg</th>
+    <th class="calcthclass">Flecha<br/> Total</th>
+    <th class="calcthclass">Flecha<br/> Vert</th>
+    <th class="calcthclass">Flecha<br/> Horiz</th>
     <th></th>
     <th></th>
     <th></th>
@@ -20,24 +20,24 @@
 
 <% @calcmecanicos.each do |calcmecanico| %>
   <tr>
-    <td><%= calcmecanico.vano_id %></td>
-    <td><%= calcmecanico.condclima_id %></td>
-    <td><%= calcmecanico.tension %></td>
-    <td><%= calcmecanico.tiro %></td>
-    <td><%= calcmecanico.flecha_t %></td>
-    <td><%= calcmecanico.flecha_v %></td>
-    <td><%= calcmecanico.flecha_h %></td>
-    <td><%= calcmecanico.conductor_id %></td>
-    <td><%= calcmecanico.temp %></td>
-    <td><%= calcmecanico.viento %></td>
-    <td><%= calcmecanico.hielo %></td>
-    <td><%= link_to 'Show', calcmecanico %></td>
-    <td><%= link_to 'Edit', edit_calcmecanico_path(calcmecanico) %></td>
-    <td><%= link_to 'Destroy', calcmecanico, confirm: 'Are you sure?', method: :delete %></td>
+    <td class="calctdclass"><%= calcmecanico.vano_id %></td>
+    <td class="calctdsclass"><%= calcmecanico.conductor.nombre %></td>
+    <td class="calctdsclass"><%= calcmecanico.condclima.nombre %></td>
+    <td class="calctdclass"><%= calcmecanico.temp %></td>
+    <td class="calctdclass"><%= calcmecanico.viento %></td>
+    <td class="calctdclass"><%= calcmecanico.hielo %></td>
+    <td class="calctdclass"><%= number_with_precision(calcmecanico.tension,:precision=>2) %></td>
+    <td class="calctdclass"><%= number_with_precision(calcmecanico.tiro,:precision=>1) %></td>
+    <td class="calctdclass"><%= number_with_precision(calcmecanico.flecha_t,:precision=>2) %></td>
+    <td class="calctdclass"><%= number_with_precision(calcmecanico.flecha_v,:precision=>2) %></td>
+    <td class="calctdclass"><%= number_with_precision(calcmecanico.flecha_h,:precision=>2) %></td>
+    <td class="calctbclass"><%= link_to 'S', calcmecanico %></td>
+    <td class="calctbclass"><%= link_to 'E', edit_calcmecanico_path(calcmecanico) %></td>
+    <td class="calctbclass"><%= link_to 'D', calcmecanico, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Calcmecanico', new_calcmecanico_path %>
+|<%= link_to 'Vanos del Proyecto', vanos_path(:proyecto_id=>1) %>|

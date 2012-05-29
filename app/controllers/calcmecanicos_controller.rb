@@ -2,7 +2,8 @@ class CalcmecanicosController < ApplicationController
   # GET /calcmecanicos
   # GET /calcmecanicos.json
   def index
-    @calcmecanicos = Calcmecanico.all
+    @calcmecanicos = Calcmecanico.where(:vano_id=>params[:vano_id]).order(:conductor_id, :condclima_id)
+    @proyecto_id = params[:proyecto_id]
 
     respond_to do |format|
       format.html # index.html.erb

@@ -20,12 +20,13 @@
     <td class="vanotdclass"><%= number_with_precision(vano.vano,:precision=>1) %></td>
     <td class="vanotdsclass"><%= vano.cond_e.nombre %></td>
     <td class="vanotdclass"><%= number_with_precision(vano.tiromax_e,:precision=>1) %></td>
-    <td class="vanotdclass"><%= number_with_precision(vano.flechamax_e,:precision=>1) %></td>
-    <td class="vanotdclass"><%= number_with_precision(vano.tma_e,:precision=>1) %></td>
+    <td class="vanotdclass"><%= number_with_precision(vano.flechamax_e,:precision=>2) %></td>
+    <td class="vanotdclass"><%= number_with_precision(vano.tma_e,:precision=>2) %></td>
     <td class="vanotdsclass"><%= vano.cond_g.nombre %></td>
     <td class="vanotdclass"><%= number_with_precision(vano.tiromax_g,:precision=>1) %></td>
-    <td class="vanotdclass"><%= number_with_precision(vano.flechamax_g,:precision=>1) %></td>
-    <td class="vanotdclass"><%= number_with_precision(vano.tma_g,:precision=>1) %></td>
+    <td class="vanotdclass"><%= number_with_precision(vano.flechamax_g,:precision=>2) %></td>
+    <td class="vanotdclass"><%= number_with_precision(vano.tma_g,:precision=>2) %></td>
+    <td class="vanotbclass"><%= link_to 'CM', calcmecanicos_path(:vano_id=>vano.id,:proyecto_id=>@proyecto_id) %></td>
     <td class="vanotbclass"><%= link_to 'S', vano %></td>
     <td class="vanotbclass"><%= link_to 'E', edit_vano_path(vano) %></td>
     <td class="vanotbclass"><%= link_to 'D', vano, confirm: 'Are you sure?', method: :delete %></td>
@@ -35,4 +36,7 @@
 
 <br />
 
-<%= link_to 'New Vano', new_vano_path %>
+|<%= link_to 'Nuevo Vano', new_vano_path %>|
+|<%= link_to 'Tramos del Proyecto', tramos_path(:proyecto_id=>@proyecto_id) %>|
+|<%= link_to 'Datos del Proyecto', proyecto_path(Proyecto.find(@proyecto_id)) %>|
+|<%= link_to 'Lista de Proyectos', proyectos_path %>|<br/>

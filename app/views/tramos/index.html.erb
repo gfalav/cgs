@@ -23,4 +23,7 @@
 
 <br />
 
-<%= link_to 'New Tramo', new_tramo_path %>
+|<%= link_to 'Nuevo Tramo', new_tramo_path %>|
+|<%= link_to 'Vanos del Proyecto', vanos_path(:proyecto_id=>@proyecto_id) %>|
+|<%= link_to 'Datos del Proyecto', proyecto_path(Proyecto.find(@proyecto_id)) %>|
+|<%= link_to 'Lista de Proyectos', proyectos_path %>|<br/>
