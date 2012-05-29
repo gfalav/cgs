@@ -41,3 +41,6 @@
 <br />
 
 |<%= link_to 'Vanos del Proyecto', vanos_path(:proyecto_id=>1) %>|
+|<%= link_to 'Tramos del Proyecto', tramos_path(:proyecto_id=>@proyecto_id) %>|
+|<%= link_to 'Datos del Proyecto', proyecto_path(Proyecto.find(@proyecto_id)) %>|
+|<%= link_to 'Lista de Proyectos', proyectos_path %>|<br/>
