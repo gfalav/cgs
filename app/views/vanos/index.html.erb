@@ -1,0 +1,38 @@
+﻿<h1>Vanos del Proyecto</h1>
+
+<table>
+  <tr>
+    <th class="vanothclass">Nombre</th>
+    <th class="vanothclass">Vano (m)</th>
+    <th class="vanothclass">Cond e</th>
+    <th class="vanothclass">Tiro<br/> energía</th>
+    <th class="vanothclass">Flecha<br/> energía</th>
+    <th class="vanothclass">Tma<br/> energía</th>
+    <th class="vanothclass">Cond g</th>
+    <th class="vanothclass">Tiro</br> guardia</th>
+    <th class="vanothclass">Flecha</br> guardia</th>
+    <th class="vanothclass">Tma</br> guardia</th>
+  </tr>
+
+<% @vanos.each do |vano| %>
+  <tr>
+    <td class="vanotdsclass"><%= vano.nombre %></td>
+    <td class="vanotdclass"><%= number_with_precision(vano.vano,:precision=>1) %></td>
+    <td class="vanotdsclass"><%= vano.cond_e.nombre %></td>
+    <td class="vanotdclass"><%= number_with_precision(vano.tiromax_e,:precision=>1) %></td>
+    <td class="vanotdclass"><%= number_with_precision(vano.flechamax_e,:precision=>1) %></td>
+    <td class="vanotdclass"><%= number_with_precision(vano.tma_e,:precision=>1) %></td>
+    <td class="vanotdsclass"><%= vano.cond_g.nombre %></td>
+    <td class="vanotdclass"><%= number_with_precision(vano.tiromax_g,:precision=>1) %></td>
+    <td class="vanotdclass"><%= number_with_precision(vano.flechamax_g,:precision=>1) %></td>
+    <td class="vanotdclass"><%= number_with_precision(vano.tma_g,:precision=>1) %></td>
+    <td class="vanotbclass"><%= link_to 'S', vano %></td>
+    <td class="vanotbclass"><%= link_to 'E', edit_vano_path(vano) %></td>
+    <td class="vanotbclass"><%= link_to 'D', vano, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Vano', new_vano_path %>

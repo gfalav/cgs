@@ -1,4 +1,18 @@
 Cgs::Application.routes.draw do
+  resources :calcmecanicos
+
+  resources :reltramovanos
+
+  resources :vanos
+
+  resources :ttramos
+
+  resources :tramos do
+    collection do
+      get 'calctramos'
+    end
+  end
+
   resources :condclimas
 
   resources :zonas

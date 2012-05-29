@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ttramo_id: 1
+  secuencia: 1
+  nombre: MyString
+  cantidad: 1
+  proyecto_id: 1
+
+two:
+  ttramo_id: 1
+  secuencia: 1
+  nombre: MyString
+  cantidad: 1
+  proyecto_id: 1

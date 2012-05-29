@@ -1,0 +1,26 @@
+<h1>Detalle de Piquetes</h1>
+
+<table>
+  <tr>
+    <th class="tramothclass">Secuencia</th>
+    <th class="tramothclass">Nombre</th>
+    <th class="tramothclass">Cantidad</th>
+    <th class="tramothclass">Proyecto</th>
+  </tr>
+
+<% @tramos.each do |tramo| %>
+  <tr>
+    <td class="tramotdclass"><%= tramo.secuencia %></td>
+    <td class="tramotdsclass"><%= tramo.nombre %></td>
+    <td class="tramotdclass"><%= tramo.cantidad %></td>
+    <td class="tramotdclass"><%= tramo.proyecto_id %></td>
+    <td class="tramotbclass"><%= link_to 'S', tramo %></td>
+    <td class="tramotbclass"><%= link_to 'E', edit_tramo_path(tramo) %></td>
+    <td class="tramotbclass"><%= link_to 'D', tramo, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Tramo', new_tramo_path %>

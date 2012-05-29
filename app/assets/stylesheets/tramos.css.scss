@@ -1,0 +1,36 @@
+// Place all the styles related to the tramos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tramothclass {
+	font-size: 10px;
+	border: 1px solid black;
+	width: 55px;
+}
+
+.tramotdclass {
+	font-size: 9px;
+	text-align: right;
+	border: 1px solid blue;
+	padding-right: 3px;
+}
+
+.tramotdsclass {
+	font-size: 9px;
+	text-align: left;
+	border: 1px solid blue;
+	width: 400px;
+}
+
+.tramotbclass {
+	font-size: 10px;
+}
+
+.tramotbclass a {
+	font-size: 9px;
+	text-decoration: none;
+}
+
+.tramolinea {
+	display: inline;
+}

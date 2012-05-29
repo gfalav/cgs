@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  proyecto_id: 1
+  nombre: MyString
+  vano: 9.99
+  cond_e_id: 1
+  cond_g_id: 1
+  tiromax_e: 9.99
+  flechamax_e: 9.99
+  tma_e: 9.99
+  tiromax_g: 9.99
+  flechamax_g: 9.99
+  tma_g: 9.99
+
+two:
+  proyecto_id: 1
+  nombre: MyString
+  vano: 9.99
+  cond_e_id: 1
+  cond_g_id: 1
+  tiromax_e: 9.99
+  flechamax_e: 9.99
+  tma_e: 9.99
+  tiromax_g: 9.99
+  flechamax_g: 9.99
+  tma_g: 9.99
