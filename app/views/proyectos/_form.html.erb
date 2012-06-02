@@ -57,7 +57,7 @@
   </div>
   <div class="field">
     <%= f.label 'Tipo Constructivo' %><br />
-    <%= f.number_field :tconstr_id %>
+    <%= collection_select(:proyecto,:tconstr_id, @tconstr, :id, :tipo) %>
   </div>
   <div class="field">
     <%= f.label 'Vano Máximo (m)' %><br />

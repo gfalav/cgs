@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120529125945) do
+ActiveRecord::Schema.define(:version => 20120602222629) do
 
   create_table "calcmecanicos", :force => true do |t|
     t.integer  "vano_id"
@@ -90,6 +90,12 @@ ActiveRecord::Schema.define(:version => 20120529125945) do
     t.integer  "tramo_id"
     t.integer  "vano_id"
     t.decimal  "angulo"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tconstrs", :force => true do |t|
+    t.string   "tipo"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

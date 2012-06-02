@@ -26,6 +26,7 @@ class ProyectosController < ApplicationController
   def new
     @proyecto = Proyecto.new
     @conductor = Conductor.all
+    @tconstr = Tconstr.all
     @zona = Zona.all
 
     respond_to do |format|
@@ -38,6 +39,7 @@ class ProyectosController < ApplicationController
   def edit
     @conductor = Conductor.all
     @zona = Zona.all
+    @tconstr = Tconstr.all
     @proyecto = Proyecto.find(params[:id])
   end
 

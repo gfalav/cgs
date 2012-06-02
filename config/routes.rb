@@ -1,4 +1,6 @@
 Cgs::Application.routes.draw do
+  resources :tconstrs
+
   resources :calcmecanicos
 
   resources :reltramovanos
