@@ -16,6 +16,7 @@
       t.timestamps
     end
     
+    Conductor.create(:nombre=>'Sin Conductor',:seccion=>0,:diametro=>0,:peso=>0,:rmec=>0,:coef_e=>0,:coef_t=>0,:imax=>0,:relec=>0,:tmax=>0,:tmed=>0)
     Conductor.create(:nombre=>'Al Ac - 16/2.5',:seccion=>17.813,:diametro=>5.4,:peso=>62,:rmec=>580,:coef_e=>8100,:coef_t=>0.0000191,:imax=>90,:relec=>1.88,:tmax=>12,:tmed=>6.5)
     Conductor.create(:nombre=>'Al Ac - 24/4',:seccion=>27.833,:diametro=>6.75,:peso=>97,:rmec=>900,:coef_e=>8100,:coef_t=>0.0000191,:imax=>125,:relec=>1.2,:tmax=>12,:tmed=>6.5)
     Conductor.create(:nombre=>'Al Ac - 35/6',:seccion=>40.079,:diametro=>8.1,:peso=>139,:rmec=>1230,:coef_e=>8100,:coef_t=>0.0000191,:imax=>145,:relec=>0.835,:tmax=>12,:tmed=>6.5)
