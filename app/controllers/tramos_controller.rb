@@ -64,6 +64,7 @@ class TramosController < ApplicationController
         vano.cond_g_id = proyecto.cond_g_id
         vano.save
         vano.calcvano
+        vant = vano
         
         if (p.distancia > dretmax)
           tramo = Tramo.new

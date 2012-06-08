@@ -12,20 +12,28 @@
   end
 
 
-  def dmin(lcadena,ang,dt1,dapoyo)
-      return lcadena * Math.sin(ang / 180 * Math::PI) + dt1 + dapoyo/2 + 0.02      
+  def calc132coplhoriz #cálculo de líneas coplanar horizontal en 13,2kV
+      
+      alin_lcrucetamin = dcond(0.7,1.28,0,13.2) * 2
+      alin_lposte = (hlibre + flecha) / 0.9
+  
+      debugger
   end
 
-  def dm(lpend,lcadena)   #distancia entre ménsulas
-      return lpend + lcadena + dt1
+  def dmin(lcadena,ang,un,dapoyo)
+      return lcadena * Math.sin(ang / 180 * Math::PI) + dt1(un) + dapoyo/2 + 0.02      
   end
 
-  def dcond(k,flecha,lcadena,dt1)
-      return k * Math.sqrt(flecha+lcadena) + dt1      
+  def dm(lpend,lcadena,un)   #distancia entre ménsulas
+      return lpend + lcadena + dt1(un)
   end
 
-  def dt1(Un)
-      return Un / 150
+  def dcond(k,flecha,lcadena,un)
+      return k * Math.sqrt(flecha+lcadena) + dt1(un)      
+  end
+
+  def dt1(un)
+      return un / 150
   end
   
   def hcp(hcs, lm, lmcp) 

@@ -60,7 +60,13 @@ class Vano < ActiveRecord::Base
           k2 = (k1 + vano.cond_e.coef_t * c2.temp) * vano.cond_e.coef_e * vano.cond_e.seccion
           k3 = vano.vano**2 * pt2**2 * vano.cond_e.coef_e * vano.cond_e.seccion / 24
           t2 = newton(k2,k3)
+          if t2 > tmax
+            tmax = t2
+          end
           f2 = vano.vano**2 * pt2 / 8 / t2
+          if f2 > fmax
+            fmax = f2
+          end
           if (c2.nombre=="Tmed")
             tmed = t2 / vano.cond_e.seccion
           end
@@ -163,91 +169,93 @@ class Vano < ActiveRecord::Base
     vano.save
     
     #calcula hilo de guardia
-    proyecto.zona.condclimas.each {|c|
-      flag = 0
-      arrtmp = Array.new
-      
-      pv1 = pvcond(proyecto.zona_id, c.viento, 0, vano.cond_g.diametro,vano.vano,hconductor)
-      ph1 = phcond(proyecto.zona_id,vano.cond_g.diametro,c.hielo)
-      pt1 = Math.sqrt(pv1**2 + (ph1+vano.cond_g.peso/1000)**2)
-      pang1 = Math.atan(pv1 / (vano.cond_g.peso/1000 + ph1)) / Math::PI * 180
-      
-      f1 = Calcmecanico.where(:vano_id=>vano.id, :conductor_id=>vano.cond_e.id, :condclima_id=>c.id)[0].flecha_t*0.9
-      t1 = vano.vano**2 * pt1 / 8 / f1
-      tmax = t1
-      if (c.nombre=="Tmed")
-        tmed = t1 / vano.cond_g.seccion
-      end
-      fmax = f1
-      
-      k1 = vano.vano**2 * pt1**2 / 24 / (t1**2)  - vano.cond_g.coef_t * c.temp - t1 / vano.cond_g.coef_e / vano.cond_g.seccion
-
-      calc = Calcmecanico.new
-      calc.vano_id = vano.id
-      calc.condclima_id = c.id
-      calc.temp = c.temp
-      calc.viento = c.viento
-      calc.hielo = c.hielo
-      calc.tension = t1 / vano.cond_g.seccion
-      calc.tiro = t1
-      calc.flecha_t = f1
-      calc.flecha_h = f1 * Math.sin(pang1 / 180 * Math::PI)
-      calc.flecha_v = f1 * Math.cos(pang1 / 180 * Math::PI)
-      calc.conductor_id = vano.cond_g.id
-      arrtmp << calc
-      
-      proyecto.zona.condclimas.each {|c2|
-        if (c.id != c2.id)          
-          pv2 = pvcond(proyecto.zona_id, c2.viento, 0, vano.cond_g.diametro,vano.vano,hconductor)
-          ph2 = phcond(proyecto.zona_id,vano.cond_g.diametro,c2.hielo)
-          pt2 = Math.sqrt(pv2**2 + (ph2+vano.cond_g.peso/1000)**2)
-          pang2 = Math.atan(pv2 / (vano.cond_g.peso/1000 + ph2)) / Math::PI * 180
+    if (cond_g.id != 0)
+    
+        proyecto.zona.condclimas.each {|c|
+          flag = 0
+          arrtmp = Array.new
           
-          k2 = (k1 + vano.cond_g.coef_t * c2.temp) * vano.cond_g.coef_e * vano.cond_g.seccion
-          k3 = vano.vano**2 * pt2**2 * vano.cond_g.coef_e * vano.cond_g.seccion / 24
-          t2 = newton(k2,k3)
-          f2 = vano.vano**2 * pt2 / 8 / t2
-          if (tmax < t2)
-            tmax = t2
+          pv1 = pvcond(proyecto.zona_id, c.viento, 0, vano.cond_g.diametro,vano.vano,hconductor)
+          ph1 = phcond(proyecto.zona_id,vano.cond_g.diametro,c.hielo)
+          pt1 = Math.sqrt(pv1**2 + (ph1+vano.cond_g.peso/1000)**2)
+          pang1 = Math.atan(pv1 / (vano.cond_g.peso/1000 + ph1)) / Math::PI * 180
+          
+          f1 = Calcmecanico.where(:vano_id=>vano.id, :conductor_id=>vano.cond_e.id, :condclima_id=>c.id)[0].flecha_t*0.9
+          t1 = vano.vano**2 * pt1 / 8 / f1
+          tmax = t1
+          if (c.nombre=="Tmed")
+            tmed = t1 / vano.cond_g.seccion
           end
-          if (fmax < f2)
-            fmax = f2
-          end
-          if (c2.nombre=="Tmed")
-            tmed = t2 / vano.cond_g.seccion
-          end
-          if (f2 > Calcmecanico.where(:vano_id=>vano.id, :conductor_id=>vano.cond_e.id, :condclima_id=>c.id)[0].flecha_t*0.9)
-            flag = 1
+          fmax = f1
+          
+          k1 = vano.vano**2 * pt1**2 / 24 / (t1**2)  - vano.cond_g.coef_t * c.temp - t1 / vano.cond_g.coef_e / vano.cond_g.seccion
+
+          calc = Calcmecanico.new
+          calc.vano_id = vano.id
+          calc.condclima_id = c.id
+          calc.temp = c.temp
+          calc.viento = c.viento
+          calc.hielo = c.hielo
+          calc.tension = t1 / vano.cond_g.seccion
+          calc.tiro = t1
+          calc.flecha_t = f1
+          calc.flecha_h = f1 * Math.sin(pang1 / 180 * Math::PI)
+          calc.flecha_v = f1 * Math.cos(pang1 / 180 * Math::PI)
+          calc.conductor_id = vano.cond_g.id
+          arrtmp << calc
+          
+          proyecto.zona.condclimas.each {|c2|
+            if (c.id != c2.id)          
+              pv2 = pvcond(proyecto.zona_id, c2.viento, 0, vano.cond_g.diametro,vano.vano,hconductor)
+              ph2 = phcond(proyecto.zona_id,vano.cond_g.diametro,c2.hielo)
+              pt2 = Math.sqrt(pv2**2 + (ph2+vano.cond_g.peso/1000)**2)
+              pang2 = Math.atan(pv2 / (vano.cond_g.peso/1000 + ph2)) / Math::PI * 180
+              
+              k2 = (k1 + vano.cond_g.coef_t * c2.temp) * vano.cond_g.coef_e * vano.cond_g.seccion
+              k3 = vano.vano**2 * pt2**2 * vano.cond_g.coef_e * vano.cond_g.seccion / 24
+              t2 = newton(k2,k3)
+              f2 = vano.vano**2 * pt2 / 8 / t2
+              if (tmax < t2)
+                tmax = t2
+              end
+              if (fmax < f2)
+                fmax = f2
+              end
+              if (c2.nombre=="Tmed")
+                tmed = t2 / vano.cond_g.seccion
+              end
+              if (f2 > Calcmecanico.where(:vano_id=>vano.id, :conductor_id=>vano.cond_e.id, :condclima_id=>c.id)[0].flecha_t*0.9)
+                flag = 1
+                break
+              else
+                calc = Calcmecanico.new
+                calc.vano_id = vano.id
+                calc.condclima_id = c2.id
+                calc.temp = c2.temp
+                calc.viento = c2.viento
+                calc.hielo = c2.hielo
+                calc.tension = t2 / vano.cond_g.seccion
+                calc.tiro = t2
+                calc.flecha_t = f2
+                calc.flecha_h = f2 * Math.sin(pang2 / 180 * Math::PI)
+                calc.flecha_v = f2 * Math.cos(pang2 / 180 * Math::PI)
+                calc.conductor_id = vano.cond_g.id
+                arrtmp << calc
+              end
+            end
+          }
+          if (flag == 0)
             break
-          else
-            calc = Calcmecanico.new
-            calc.vano_id = vano.id
-            calc.condclima_id = c2.id
-            calc.temp = c2.temp
-            calc.viento = c2.viento
-            calc.hielo = c2.hielo
-            calc.tension = t2 / vano.cond_g.seccion
-            calc.tiro = t2
-            calc.flecha_t = f2
-            calc.flecha_h = f2 * Math.sin(pang2 / 180 * Math::PI)
-            calc.flecha_v = f2 * Math.cos(pang2 / 180 * Math::PI)
-            calc.conductor_id = vano.cond_g.id
-            arrtmp << calc
           end
-        end
-      }
-      if (flag == 0)
-        break
-      end
-    }
-    arrtmp.each {|a|
-      a.save  
-    }
-    vano.tiromax_g = tmax
-    vano.flechamax_g = fmax
-    vano.tma_g = tmed
-    vano.save
-        
+        }
+        arrtmp.each {|a|
+          a.save  
+        }
+        vano.tiromax_g = tmax
+        vano.flechamax_g = fmax
+        vano.tma_g = tmed
+        vano.save
+    end        
   end
 
   def pvcond(zona_id,v,ang,d,vano,h_conductor)
