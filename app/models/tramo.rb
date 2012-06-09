@@ -12,10 +12,13 @@
   end
 
 
-  def calc132coplhoriz #cálculo de líneas coplanar horizontal en 13,2kV
-      
-      alin_lcrucetamin = dcond(0.7,1.28,0,13.2) * 2
+  def calc132coplhoriz() #cálculo de dimensiones de líneas coplanar horizontal en 13,2kV
+      #calcula valores mínimos de apoyo
+      alin_lcruceta = dcond(0.7,1.28,0,13.2) * 2
       alin_lposte = (hlibre + flecha) / 0.9
+      alin_hempotr = alin_lposte * 0.1
+      alin_hcond1 = alin_hcond2 = alin_hcond3 = alin_lposte
+      alin_hcondp = nil
   
       debugger
   end

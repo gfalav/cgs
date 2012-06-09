@@ -1,4 +1,4 @@
-class TramosController < ApplicationController
+﻿class TramosController < ApplicationController
   # GET /tramos
   # GET /tramos.xml
   def index
@@ -98,7 +98,7 @@ class TramosController < ApplicationController
         tramo.ttramo_id = 2 #desvio
         tramo.cantidad = 1
         tramo.secuencia = Tramo.where(:proyecto_id =>proyecto_id).maximum(:secuencia).to_i+10
-        tramo.nombre = "Desvio en " + p.punto
+        tramo.nombre = "Desvio de " + p.angulo.to_i.to_s + "° en " + p.punto
         tramo.proyecto_id = proyecto_id
         tramo.save
         rel = Reltramovano.new
