@@ -16,6 +16,7 @@
         <th></th>
       </tr>
 
+    <% distancia = 0 %>
     <% @puntos.each do |punto| %>
       <tr>
         <td class="puntotdclass"><%= punto.secuencia %></td>
@@ -28,7 +29,14 @@
         <td class="puntotbclass"><%= link_to 'E', edit_punto_path(punto) %></td>
         <td class="puntotbclass"><%= link_to 'D', punto, confirm: 'Are you sure?', method: :delete %></td>
       </tr>
+      <% distancia =distancia + punto.distancia %>
     <% end %>
+        <td class="puntotbclass"></td>
+        <td class="puntotbclass"></td>
+        <td class="puntotbclass"></td>
+        <td class="puntotdclass">Total (m)</td>
+        <td class="puntotdclass"><%= number_with_precision(distancia, :precision=>0) %></td>
+        <td class="puntotbclass"></td>
     </table>
 
     <br />
@@ -82,7 +90,8 @@
                         jQuery.each(puntos,function(index,value){
                                 mylatlng = new google.maps.LatLng(value.latitud, value.longitud);
                                 var marker = new google.maps.Marker({
-                                      position: mylatlng, 
+                                      position: mylatlng,
+                                      draggable: true, 
                                       map: map, 
                                       title: value.nombre
                                 });  	

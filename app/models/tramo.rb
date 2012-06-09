@@ -22,13 +22,20 @@
   def calc13coplhoriz(tramo) #cálculo de dimensiones de líneas coplanar horizontal en 13,2kV
       #calcula valores mínimos de apoyo
       case tramo.ttramo_id
-      when 5 #cálculo de alineación
-        alin_lcruceta = dcond(0.7,tramo.vanos.maximum(:flechamax_e),0,13.2) * 2
-        alin_lposte = (7 + tramo.vanos.maximum(:flechamax_e)) / 0.9
-        alin_hempotr = alin_lposte * 0.1
-        alin_hcond1 = alin_hcond2 = alin_hcond3 = alin_lposte
-        alin_hcondp = nil
-        puts('resultado:','lcruceta: '+alin_lcruceta.to_s,'lposte: '+alin_lposte.to_s, 'empotr: '+alin_hempotr.to_s)
+      when 1,3,4,5 #cálculo de arranque, terminal, retensión, alineación
+        lmensula = dcond(0.7,tramo.vanos.maximum(:flechamax_e),0,13.2)
+        lcruceta = lmensula * 2
+        h_cond1 = h_cond2 = h_cond3 = lposte = (tramo.hlibre + tramo.vanos.maximum(:flechamax_e)) / 0.9
+        empotramiento = lposte * 0.1
+        h_condp = nil
+        puts('ttramo: '+tramo.ttramo_id.to_s,'lcruceta: '+lcruceta.to_s,'lposte: '+ lposte.to_s, 'empotr: '+empotramiento.to_s)
+      when 2 #cálculo de desvío
+        lmensula = dcond(0.7,tramo.vanos.maximum(:flechamax_e),0,13.2) / Math.sin(tramo.angulo * Math::PI/180/2)
+        lcruceta = lmensula * 2
+        h_cond1 = h_cond2 = h_cond3 = lposte = (tramo.hlibre + tramo.vanos.maximum(:flechamax_e)) / 0.9
+        empotramiento = lposte * 0.1
+        h_condp = nil
+        puts('ttramo: '+tramo.ttramo_id.to_s,'lcruceta: '+lcruceta.to_s,'lposte: '+ lposte.to_s, 'empotr: '+empotramiento.to_s)
         debugger
       end
   end

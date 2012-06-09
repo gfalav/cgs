@@ -45,6 +45,8 @@
         tramo = Tramo.new
         tramo.ttramo_id = 1 #arranque
         tramo.cantidad = 1
+        tramo.angulo = 0
+        tramo.hlibre = proyecto.hlibre
         tramo.secuencia = Tramo.where(:proyecto_id =>proyecto_id).maximum(:secuencia).to_i+10
         tramo.nombre = "Arranque en " + p.punto
         tramo.proyecto_id = proyecto_id
@@ -70,6 +72,8 @@
           tramo = Tramo.new
           tramo.ttramo_id = 4 #retension
           tramo.cantidad = (p.distancia/dretmax).to_i
+          tramo.angulo = 0
+          tramo.hlibre = proyecto.hlibre
           tramo.secuencia = Tramo.where(:proyecto_id =>proyecto_id).maximum(:secuencia).to_i+10
           tramo.nombre = "Retensiones entre " + pant.punto + ' y ' + p.punto
           tramo.proyecto_id = proyecto_id
@@ -84,6 +88,8 @@
           tramo = Tramo.new
           tramo.ttramo_id = 5 #alineacion
           tramo.cantidad =(p.distancia/vanomax).to_i - (p.distancia/dretmax).to_i
+          tramo.angulo = 0
+          tramo.hlibre = proyecto.hlibre
           tramo.secuencia = Tramo.where(:proyecto_id =>proyecto_id).maximum(:secuencia).to_i+10
           tramo.nombre = "Alineaciones entre " + pant.punto + ' y ' + p.punto
           tramo.proyecto_id = proyecto_id
@@ -97,6 +103,8 @@
         tramo = Tramo.new
         tramo.ttramo_id = 2 #desvio
         tramo.cantidad = 1
+        tramo.angulo = p.angulo
+        tramo.hlibre = proyecto.hlibre
         tramo.secuencia = Tramo.where(:proyecto_id =>proyecto_id).maximum(:secuencia).to_i+10
         tramo.nombre = "Desvio de " + p.angulo.to_i.to_s + "° en " + p.punto
         tramo.proyecto_id = proyecto_id
@@ -131,6 +139,8 @@
           tramo = Tramo.new
           tramo.ttramo_id = 4 #retension
           tramo.cantidad = (p.distancia/dretmax).to_i
+          tramo.angulo = 0
+          tramo.hlibre = proyecto.hlibre
           tramo.secuencia = Tramo.where(:proyecto_id =>proyecto_id).maximum(:secuencia).to_i+10
           tramo.nombre = "Retensiones entre " + pant.punto + ' y ' + p.punto
           tramo.proyecto_id = proyecto_id
@@ -145,6 +155,8 @@
           tramo = Tramo.new
           tramo.ttramo_id = 5 #alineacion
           tramo.cantidad =(p.distancia/vanomax).to_i - (p.distancia/dretmax).to_i
+          tramo.angulo = 0
+          tramo.hlibre = proyecto.hlibre
           tramo.secuencia = Tramo.where(:proyecto_id =>proyecto_id).maximum(:secuencia).to_i+10
           tramo.nombre = "Alineaciones entre " + pant.punto + ' y ' + p.punto
           tramo.proyecto_id = proyecto_id
@@ -158,6 +170,8 @@
         tramo = Tramo.new
         tramo.ttramo_id = 3 #terminal
         tramo.cantidad = 1
+        tramo.angulo = 0
+        tramo.hlibre = proyecto.hlibre
         tramo.secuencia = Tramo.where(:proyecto_id =>proyecto_id).maximum(:secuencia).to_i+10
         tramo.nombre = "Terminal en " + p.punto
         tramo.proyecto_id = proyecto_id

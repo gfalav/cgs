@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120602222629) do
+ActiveRecord::Schema.define(:version => 20120609150358) do
 
   create_table "calcmecanicos", :force => true do |t|
     t.integer  "vano_id"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20120602222629) do
     t.decimal  "dretmax"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.decimal  "hlibre"
   end
 
   create_table "puntos", :force => true do |t|
@@ -94,6 +95,9 @@ ActiveRecord::Schema.define(:version => 20120602222629) do
     t.datetime "updated_at", :null => false
   end
 
+# Could not dump table "sqlite_stat1" because of following StandardError
+#   Unknown type '' for column 'tbl'
+
   create_table "tconstrs", :force => true do |t|
     t.string   "tipo"
     t.datetime "created_at", :null => false
@@ -108,6 +112,8 @@ ActiveRecord::Schema.define(:version => 20120602222629) do
     t.integer  "proyecto_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.decimal  "angulo"
+    t.decimal  "hlibre"
   end
 
   create_table "ttramos", :force => true do |t|

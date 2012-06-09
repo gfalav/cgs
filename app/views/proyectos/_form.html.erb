@@ -44,6 +44,10 @@
     <%= f.text_field :expediente %>
   </div>
   <div class="field">
+    <%= f.label 'Altura Libre (m)' %><br />
+    <%= f.number_field :hlibre %>
+  </div>
+  <div class="field">
     <%= f.label 'Conductor de Energía' %><br />
     <%= collection_select(:proyecto,:cond_e_id, @conductor, :id, :nombre) %>
   </div>

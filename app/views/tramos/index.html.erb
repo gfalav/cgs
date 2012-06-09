@@ -5,7 +5,7 @@
     <th class="tramothclass">Secuencia</th>
     <th class="tramothclass">Nombre</th>
     <th class="tramothclass">Cantidad</th>
-    <th class="tramothclass">Proyecto</th>
+    <th class="tramothclass">Angulo</th>
   </tr>
 
 <% @tramos.each do |tramo| %>
@@ -13,7 +13,7 @@
     <td class="tramotdclass"><%= tramo.secuencia %></td>
     <td class="tramotdsclass"><%= tramo.nombre %></td>
     <td class="tramotdclass"><%= tramo.cantidad %></td>
-    <td class="tramotdclass"><%= tramo.proyecto_id %></td>
+    <td class="tramotdclass"><%= number_with_precision(tramo.angulo, :precision=>1) %></td>
     <td class="tramotbclass"><%= link_to 'S', tramo %></td>
     <td class="tramotbclass"><%= link_to 'E', edit_tramo_path(tramo) %></td>
     <td class="tramotbclass"><%= link_to 'D', tramo, confirm: 'Are you sure?', method: :delete %></td>
