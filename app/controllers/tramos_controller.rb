@@ -179,7 +179,9 @@
       pant = p
     }
     
-    
+    Tramo.where(:proyecto_id=>proyecto_id).each { |t|
+        t.calcabezal
+    }
   end
   
   
