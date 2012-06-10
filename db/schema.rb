@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120609150358) do
+ActiveRecord::Schema.define(:version => 20120610225428) do
 
   create_table "calcmecanicos", :force => true do |t|
     t.integer  "vano_id"
@@ -51,6 +51,30 @@ ActiveRecord::Schema.define(:version => 20120609150358) do
     t.decimal  "relec"
     t.decimal  "tmax"
     t.decimal  "tmed"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "dimgeoms", :force => true do |t|
+    t.integer  "tramo_id"
+    t.decimal  "lcadena"
+    t.decimal  "lpendulo"
+    t.decimal  "k"
+    t.decimal  "hl"
+    t.decimal  "fmax"
+    t.decimal  "dmens"
+    t.decimal  "dconds"
+    t.decimal  "hmi"
+    t.decimal  "hmm"
+    t.decimal  "hms"
+    t.decimal  "hci"
+    t.decimal  "hcm"
+    t.decimal  "hcs"
+    t.decimal  "hcpr"
+    t.decimal  "lmensula"
+    t.decimal  "lcruceta"
+    t.decimal  "lposte"
+    t.decimal  "empot"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

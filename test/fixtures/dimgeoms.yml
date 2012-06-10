@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tramo_id: 1
+  lcadena: 9.99
+  lpendulo: 9.99
+  k: 9.99
+  hl: 9.99
+  fmax: 9.99
+  dmens: 9.99
+  dconds: 9.99
+  hmi: 9.99
+  hmm: 9.99
+  hms: 9.99
+  hci: 9.99
+  hcm: 9.99
+  hcs: 9.99
+  hcpr: 9.99
+  lmensula: 9.99
+  lcruceta: 9.99
+  lposte: 9.99
+  empot: 9.99
+
+two:
+  tramo_id: 1
+  lcadena: 9.99
+  lpendulo: 9.99
+  k: 9.99
+  hl: 9.99
+  fmax: 9.99
+  dmens: 9.99
+  dconds: 9.99
+  hmi: 9.99
+  hmm: 9.99
+  hms: 9.99
+  hci: 9.99
+  hcm: 9.99
+  hcs: 9.99
+  hcpr: 9.99
+  lmensula: 9.99
+  lcruceta: 9.99
+  lposte: 9.99
+  empot: 9.99

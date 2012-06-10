@@ -32,9 +32,13 @@
     
     Tramo.where(:proyecto_id => proyecto_id).each {|t|
       t.reltramovanos.destroy_all
+      if (t.dimgeom!=nil )
+        t.dimgeom.destroy
+      end  
       t.destroy
     }      
     Vano.where(:proyecto_id => proyecto_id).destroy_all
+    
     
     puntos = Punto.where(:proyecto_id => proyecto_id).order(:secuencia)
     n = 0

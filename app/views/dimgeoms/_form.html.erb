@@ -1,0 +1,93 @@
+<%= form_for(@dimgeom) do |f| %>
+  <% if @dimgeom.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dimgeom.errors.count, "error") %> prohibited this dimgeom from being saved:</h2>
+
+      <ul>
+      <% @dimgeom.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tramo_id %><br />
+    <%= f.number_field :tramo_id %>
+  </div>
+  <div class="field">
+    <%= f.label :lcadena %><br />
+    <%= f.text_field :lcadena %>
+  </div>
+  <div class="field">
+    <%= f.label :lpendulo %><br />
+    <%= f.text_field :lpendulo %>
+  </div>
+  <div class="field">
+    <%= f.label :k %><br />
+    <%= f.text_field :k %>
+  </div>
+  <div class="field">
+    <%= f.label :hl %><br />
+    <%= f.text_field :hl %>
+  </div>
+  <div class="field">
+    <%= f.label :fmax %><br />
+    <%= f.text_field :fmax %>
+  </div>
+  <div class="field">
+    <%= f.label :dmens %><br />
+    <%= f.text_field :dmens %>
+  </div>
+  <div class="field">
+    <%= f.label :dconds %><br />
+    <%= f.text_field :dconds %>
+  </div>
+  <div class="field">
+    <%= f.label :hmi %><br />
+    <%= f.text_field :hmi %>
+  </div>
+  <div class="field">
+    <%= f.label :hmm %><br />
+    <%= f.text_field :hmm %>
+  </div>
+  <div class="field">
+    <%= f.label :hms %><br />
+    <%= f.text_field :hms %>
+  </div>
+  <div class="field">
+    <%= f.label :hci %><br />
+    <%= f.text_field :hci %>
+  </div>
+  <div class="field">
+    <%= f.label :hcm %><br />
+    <%= f.text_field :hcm %>
+  </div>
+  <div class="field">
+    <%= f.label :hcs %><br />
+    <%= f.text_field :hcs %>
+  </div>
+  <div class="field">
+    <%= f.label :hcpr %><br />
+    <%= f.text_field :hcpr %>
+  </div>
+  <div class="field">
+    <%= f.label :lmensula %><br />
+    <%= f.text_field :lmensula %>
+  </div>
+  <div class="field">
+    <%= f.label :lcruceta %><br />
+    <%= f.text_field :lcruceta %>
+  </div>
+  <div class="field">
+    <%= f.label :lposte %><br />
+    <%= f.text_field :lposte %>
+  </div>
+  <div class="field">
+    <%= f.label :empot %><br />
+    <%= f.text_field :empot %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,59 @@
+<h1>Listing dimgeoms</h1>
+
+<table>
+  <tr>
+    <th>Tramo</th>
+    <th>Lcadena</th>
+    <th>Lpendulo</th>
+    <th>K</th>
+    <th>Hl</th>
+    <th>Fmax</th>
+    <th>Dmens</th>
+    <th>Dconds</th>
+    <th>Hmi</th>
+    <th>Hmm</th>
+    <th>Hms</th>
+    <th>Hci</th>
+    <th>Hcm</th>
+    <th>Hcs</th>
+    <th>Hcpr</th>
+    <th>Lmensula</th>
+    <th>Lcruceta</th>
+    <th>Lposte</th>
+    <th>Empot</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @dimgeoms.each do |dimgeom| %>
+  <tr>
+    <td><%= dimgeom.tramo_id %></td>
+    <td><%= dimgeom.lcadena %></td>
+    <td><%= dimgeom.lpendulo %></td>
+    <td><%= dimgeom.k %></td>
+    <td><%= dimgeom.hl %></td>
+    <td><%= dimgeom.fmax %></td>
+    <td><%= dimgeom.dmens %></td>
+    <td><%= dimgeom.dconds %></td>
+    <td><%= dimgeom.hmi %></td>
+    <td><%= dimgeom.hmm %></td>
+    <td><%= dimgeom.hms %></td>
+    <td><%= dimgeom.hci %></td>
+    <td><%= dimgeom.hcm %></td>
+    <td><%= dimgeom.hcs %></td>
+    <td><%= dimgeom.hcpr %></td>
+    <td><%= dimgeom.lmensula %></td>
+    <td><%= dimgeom.lcruceta %></td>
+    <td><%= dimgeom.lposte %></td>
+    <td><%= dimgeom.empot %></td>
+    <td><%= link_to 'Show', dimgeom %></td>
+    <td><%= link_to 'Edit', edit_dimgeom_path(dimgeom) %></td>
+    <td><%= link_to 'Destroy', dimgeom, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Dimgeom', new_dimgeom_path %>
