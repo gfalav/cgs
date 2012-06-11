@@ -1,99 +1,97 @@
-<p id="notice"><%= notice %></p>
+﻿<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Tramo:</b>
-  <%= @dimgeom.tramo_id %>
-</p>
-
-<p>
-  <b>Lcadena:</b>
-  <%= @dimgeom.lcadena %>
-</p>
-
-<p>
-  <b>Lpendulo:</b>
-  <%= @dimgeom.lpendulo %>
-</p>
-
-<p>
-  <b>K:</b>
-  <%= @dimgeom.k %>
-</p>
-
-<p>
-  <b>Hl:</b>
-  <%= @dimgeom.hl %>
-</p>
-
-<p>
-  <b>Fmax:</b>
-  <%= @dimgeom.fmax %>
-</p>
-
-<p>
-  <b>Dmens:</b>
-  <%= @dimgeom.dmens %>
-</p>
-
-<p>
-  <b>Dconds:</b>
-  <%= @dimgeom.dconds %>
-</p>
-
-<p>
-  <b>Hmi:</b>
-  <%= @dimgeom.hmi %>
-</p>
-
-<p>
-  <b>Hmm:</b>
-  <%= @dimgeom.hmm %>
-</p>
-
-<p>
-  <b>Hms:</b>
-  <%= @dimgeom.hms %>
-</p>
-
-<p>
-  <b>Hci:</b>
-  <%= @dimgeom.hci %>
-</p>
-
-<p>
-  <b>Hcm:</b>
-  <%= @dimgeom.hcm %>
-</p>
-
-<p>
-  <b>Hcs:</b>
-  <%= @dimgeom.hcs %>
-</p>
-
-<p>
-  <b>Hcpr:</b>
-  <%= @dimgeom.hcpr %>
-</p>
-
-<p>
-  <b>Lmensula:</b>
-  <%= @dimgeom.lmensula %>
-</p>
-
-<p>
-  <b>Lcruceta:</b>
-  <%= @dimgeom.lcruceta %>
-</p>
-
-<p>
-  <b>Lposte:</b>
-  <%= @dimgeom.lposte %>
-</p>
-
-<p>
-  <b>Empot:</b>
-  <%= @dimgeom.empot %>
-</p>
+<table>
+  <tr>
+    <th colspan="4" class="dimgtb2class">Dimensiones del Tramo: <%= @dimgeom.tramo.nombre %></th>
+  </tr>
+  <tr>
+    <th colspan="4" class="dimgtbclass">Longitudes</th>
+  </tr>
+  <tr>
+    <th colspan="2" class="dimgthclass">Long Cadena (m)</th>
+    <th colspan="2" class="dimgthclass">Long Péndulo (m)</th>
+  </tr>
+  <tr>
+    <td colspan="2" class="dimgtdclass"><%= number_with_precision(@dimgeom.lcadena,:precision=>3) %></th>
+    <td colspan="2" class="dimgtdclass"><%= number_with_precision(@dimgeom.lpendulo,:precision=>3) %></th>
+  </tr>
+  <tr>
+    <th colspan="4" class="dimgtbclass">Parámetros</th>
+  </tr>
+  <tr>
+    <th class="dimgthclass">K Adoptado</th>
+    <th class="dimgthclass">Altura Libre (m)</th>
+    <th class="dimgthclass">Flecha Máx (m)</th>
+  </tr>
+  <tr>
+    <td class="dimgtdclass"><%= number_with_precision(@dimgeom.k,:precision=>2) %></th>
+    <td class="dimgtdclass"><%= number_with_precision(@dimgeom.hl,:precision=>2) %></th>
+    <td class="dimgtdclass"><%= number_with_precision(@dimgeom.fmax,:precision=>2) %></th>
+  </tr>
+  <tr>
+    <th colspan="4" class="dimgtbclass">Medidas Mínimas</th>
+  </tr>
+  <tr>
+    <th class="dimgthclass">Dmens</th>
+    <th class="dimgthclass">Dconds</th>
+  </tr>
+  <tr>
+    <td class="dimgtdclass"><%= number_with_precision(@dimgeom.dmens,:precision=>2) %></th>
+    <td class="dimgtdclass"><%= number_with_precision(@dimgeom.dconds,:precision=>2) %></th>
+  </tr>
+  <tr>
+    <th colspan="4" class="dimgtbclass">Altura de Crucetas o Ménsulas</th>
+  </tr>
+  <tr>
+    <th class="dimgthclass">Inferior</th>
+    <th class="dimgthclass">Media</th>
+    <th class="dimgthclass">Superior</th>
+  </tr>
+  <tr>
+    <td class="dimgtdclass"><%= number_with_precision(@dimgeom.hmi,:precision=>2) %></th>
+    <td class="dimgtdclass"><%= number_with_precision(@dimgeom.hmm,:precision=>2) %></th>
+    <td class="dimgtdclass"><%= number_with_precision(@dimgeom.hms,:precision=>2) %></th>
+  </tr>
+  <tr>
+    <th colspan="4" class="dimgtbclass">Altura de Conductores</th>
+  </tr>
+  <tr>
+    <th class="dimgthclass">Inferior</th>
+    <th class="dimgthclass">Media</th>
+    <th class="dimgthclass">Superior</th>
+    <th class="dimgthclass">Protección</th>
+  </tr>
+  <tr>
+    <td class="dimgtdclass"><%= number_with_precision(@dimgeom.hci,:precision=>2) %></th>
+    <td class="dimgtdclass"><%= number_with_precision(@dimgeom.hcm,:precision=>2) %></th>
+    <td class="dimgtdclass"><%= number_with_precision(@dimgeom.hcs,:precision=>2) %></th>
+    <td class="dimgtdclass"><%= number_with_precision(@dimgeom.hcpr,:precision=>2) %></th>
+  </tr>
+  <tr>
+    <th colspan="4" class="dimgtbclass">Longitud de Crucetas o Ménsulas</th>
+  </tr>
+  <tr>
+    <th class="dimgthclass">Long Ménsulas (m)</th>
+    <th class="dimgthclass">Long Crucetas (m)</th>
+  </tr>
+  <tr>
+    <td class="dimgtdclass"><%= number_with_precision(@dimgeom.lmensula,:precision=>2) %></th>
+    <td class="dimgtdclass"><%= number_with_precision(@dimgeom.lcruceta,:precision=>2) %></th>
+  </tr>
+  <tr>
+    <th colspan="4" class="dimgtbclass">Dimensiones del apoyo</th>
+  </tr>
+  <tr>
+    <th class="dimgthclass">Long Apoyo (m)</th>
+    <th class="dimgthclass">Empotramiento (m)</th>
+  </tr>
+  <tr>
+    <td class="dimgtdclass"><%= number_with_precision(@dimgeom.lposte,:precision=>2) %></th>
+    <td class="dimgtdclass"><%= number_with_precision(@dimgeom.empot,:precision=>2) %></th>
+  </tr>
+  
+  
+</table>
 
 
 <%= link_to 'Edit', edit_dimgeom_path(@dimgeom) %> |
