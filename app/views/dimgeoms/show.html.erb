@@ -5,7 +5,7 @@
     <th colspan="4" class="dimgtb2class">Dimensiones del Tramo: <%= @dimgeom.tramo.nombre %></th>
   </tr>
   <tr>
-    <th colspan="4" class="dimgtbclass">Longitudes</th>
+    <th colspan="4" class="dimgtbclass">Longitudes de Herrajería y Cadenas</th>
   </tr>
   <tr>
     <th colspan="2" class="dimgthclass">Long Cadena (m)</th>
@@ -16,7 +16,7 @@
     <td colspan="2" class="dimgtdclass"><%= number_with_precision(@dimgeom.lpendulo,:precision=>3) %></th>
   </tr>
   <tr>
-    <th colspan="4" class="dimgtbclass">Parámetros</th>
+    <th colspan="4" class="dimgtbclass">Parámetros del Tramo</th>
   </tr>
   <tr>
     <th class="dimgthclass">K Adoptado</th>
@@ -29,7 +29,7 @@
     <td class="dimgtdclass"><%= number_with_precision(@dimgeom.fmax,:precision=>2) %></th>
   </tr>
   <tr>
-    <th colspan="4" class="dimgtbclass">Medidas Mínimas</th>
+    <th colspan="4" class="dimgtbclass">Medidas Mínimas a Cumplir en el Tramo</th>
   </tr>
   <tr>
     <th class="dimgthclass">Dmens</th>
@@ -40,7 +40,7 @@
     <td class="dimgtdclass"><%= number_with_precision(@dimgeom.dconds,:precision=>2) %></th>
   </tr>
   <tr>
-    <th colspan="4" class="dimgtbclass">Altura de Crucetas o Ménsulas</th>
+    <th colspan="4" class="dimgtbclass">Altura Mínima de Crucetas o Ménsulas</th>
   </tr>
   <tr>
     <th class="dimgthclass">Inferior</th>
@@ -53,7 +53,7 @@
     <td class="dimgtdclass"><%= number_with_precision(@dimgeom.hms,:precision=>2) %></th>
   </tr>
   <tr>
-    <th colspan="4" class="dimgtbclass">Altura de Conductores</th>
+    <th colspan="4" class="dimgtbclass">Altura Mínima de Conductores</th>
   </tr>
   <tr>
     <th class="dimgthclass">Inferior</th>
@@ -68,7 +68,7 @@
     <td class="dimgtdclass"><%= number_with_precision(@dimgeom.hcpr,:precision=>2) %></th>
   </tr>
   <tr>
-    <th colspan="4" class="dimgtbclass">Longitud de Crucetas o Ménsulas</th>
+    <th colspan="4" class="dimgtbclass">Longitud Mínima de Crucetas o Ménsulas</th>
   </tr>
   <tr>
     <th class="dimgthclass">Long Ménsulas (m)</th>
@@ -79,7 +79,7 @@
     <td class="dimgtdclass"><%= number_with_precision(@dimgeom.lcruceta,:precision=>2) %></th>
   </tr>
   <tr>
-    <th colspan="4" class="dimgtbclass">Dimensiones del apoyo</th>
+    <th colspan="4" class="dimgtbclass">Dimensiones Mínimas del apoyo</th>
   </tr>
   <tr>
     <th class="dimgthclass">Long Apoyo (m)</th>
@@ -93,6 +93,9 @@
   
 </table>
 
+<br/>
 
-<%= link_to 'Edit', edit_dimgeom_path(@dimgeom) %> |
-<%= link_to 'Back', dimgeoms_path %>
+|<%= link_to 'Vanos del Proyecto', vanos_path(:proyecto_id=>@dimgeom.tramo.proyecto_id) %>|
+|<%= link_to 'Tramos del Proyecto', tramos_path(:proyecto_id=>@dimgeom.tramo.proyecto_id) %>|
+|<%= link_to 'Datos del Proyecto', proyecto_path(Proyecto.find(@dimgeom.tramo.proyecto_id)) %>|
+|<%= link_to 'Lista de Proyectos', proyectos_path %>|<br/>

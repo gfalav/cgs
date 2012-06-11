@@ -1,32 +1,37 @@
 // Place all the styles related to the dimgeoms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 h1 {
 	text-align: center;
 	font-size: 14px;
 }
 
+table {
+	width: 500px;
+}
 
 .dimgthclass {
 	font-size: 10px;
 	border: 1px solid black;
+	background-color: #F0FA87;
 }
 
 .dimgtdclass {
 	font-size: 9px;
 	text-align: right;
 	border: 1px solid blue;
+	width: 120px;
 }
 
 .dimgtbclass {
 	font-size: 11px;
 	border: 3px solid black;
-	width: 600px;
+	background-color: #FAD1AF;
 }
 
 .dimgtb2class {
 	font-size: 11px;
 	border: 3px solid black;
-	width: 600px;
 	background-color: #ADD8F7;
 }
